@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://live.zwidgets.com/js-sdk/1.2/ZohoEmbededAppSDK.min.js"></script>
+
+    <link rel="stylesheet" href="./css/compiled.css" />
+  </head>
+  <body class="relative w-full p-12">
+    <div class="absolute top-0 left-12 bg-blue-700 text-white rounded-md text-sm font-semibold p-1">Related Module: <span id="moduleName"></span></div>
+    <div class="mx-auto grid grid-cols-1 gap-2 w-full">
+      <div class="mb-3">
+        <label for="name" class="block mb-2 text-sm font-medium text-gray-900"
+          >Name</label
+        >
+        <input
+          type="text"
+          id="name"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          placeholder="Clark Son"
+          required
+          readonly
+        />
+      </div>
+      <div class="mb-3">
+        <label
+          for="employee"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Employee</label
+        >
+        <input
+          type="text"
+          id="employee"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          required
+          readonly
+        />
+      </div>
+      <div class="mb-3">
+        <label
+          for="hourlyRate"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Hourly Rate</label
+        >
+        <input
+          type="number"
+          step="0.01"
+          id="hourlyRate"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+          required
+          readonly
+        />
+      </div>
+
+      <div class="mb-3">
+        <label
+          for="litigationCode"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Litigation Code</label
+        >
+        <select
+          id="litigationCode"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        >
+          <option>L/kdjfs83</option>
+          <option>Canada</option>
+          <option>France</option>
+          <option>Germany</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label
+          for="activityCode"
+          class="block mb-2 text-sm font-medium text-gray-900"
+          >Activity Code</label
+        >
+        <select
+          id="activityCode"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        >
+          <option>A/kdjfs83</option>
+          <option>Canada</option>
+          <option>France</option>
+          <option>Germany</option>
+        </select>
+      </div>
+      <div class="flex justify-center space-x-4">
+        <div class="px-4 py-2 bg-cyan-700 text-white text-lg rounded-md font-semibold">00:00:00</div>
+        <button
+          type="submit"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Start Timer
+        </button>
+        <!-- <button
+          type="submit"
+          class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Manual Entry
+        </button> -->
+      </div>
+    </div>
+
+    <script src="./js/widget.js"></script>
+  </body>
+</html>
