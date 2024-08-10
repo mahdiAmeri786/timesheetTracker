@@ -6,11 +6,27 @@
 
     <link rel="stylesheet" href="./css/compiled.css" />
   </head>
-  <body class="relative w-full p-12">
-    <div class="absolute top-0 left-12 bg-blue-700 text-white rounded-md text-sm font-semibold p-1">Related Module: <span id="moduleName"></span></div>
-    <div class="mx-auto grid grid-cols-1 gap-2 w-full">
-      <div class="mb-3">
-        <label for="name" class="block mb-2 text-sm font-medium text-gray-900"
+  <body class="relative w-full px-12 py-4">
+    <div
+      id="relatedModuleTag"
+      class="hidden absolute top-0 right-12 bg-blue-700 text-white rounded-md text-sm font-semibold p-1"
+    >
+      Related Module: <span id="moduleName"></span>
+    </div>
+    <div
+      id="loadingSkeleton"
+      class="animate-pulse w-full grid grid-cols-2 gap-4 p-6 border border-dashed rounded-md"
+    >
+      <div class="w-72 h-32 rounded-md bg-gray-200 shadow-md"></div>
+      <div class="w-72 h-32 rounded-md bg-gray-200 shadow-md"></div>
+      <div class="w-72 h-32 rounded-md bg-gray-200 shadow-md"></div>
+      <div class="w-72 h-32 rounded-md bg-gray-200 shadow-md"></div>
+      <div class="w-72 h-32 rounded-md bg-gray-200 shadow-md"></div>
+      <div class="w-72 h-32 rounded-md bg-gray-200 shadow-md"></div>
+    </div>
+    <div id="timesheetForm" class="relative hidden mx-auto grid-cols-1 gap-2 w-full">
+      <div class="">
+        <label for="name" class="block mb-1 text-sm font-medium text-gray-900"
           >Name</label
         >
         <input
@@ -18,87 +34,148 @@
           id="name"
           class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           placeholder="Clark Son"
-          required
-          readonly
+          required=""
+          readonly=""
         />
       </div>
-      <div class="mb-3">
+      <div class="">
         <label
           for="employee"
-          class="block mb-2 text-sm font-medium text-gray-900"
+          class="block mb-1 text-sm font-medium text-gray-900"
           >Employee</label
         >
-        <input
-          type="text"
+        <select
           id="employee"
-          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          required
-          readonly
-        />
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        ></select>
       </div>
-      <div class="mb-3">
+      <div class="">
         <label
           for="hourlyRate"
-          class="block mb-2 text-sm font-medium text-gray-900"
-          >Hourly Rate</label
-        >
+          class="block mb-1 text-sm font-medium text-gray-900"
+          >Hourly Rate:
+        </label>
         <input
           type="number"
           step="0.01"
           id="hourlyRate"
           class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          required
-          readonly
+          required=""
+          readonly=""
         />
       </div>
 
-      <div class="mb-3">
+      <div class="">
         <label
           for="litigationCode"
-          class="block mb-2 text-sm font-medium text-gray-900"
+          class="block mb-1 text-sm font-medium text-gray-900"
           >Litigation Code</label
         >
         <select
           id="litigationCode"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-        >
-          <option>L/kdjfs83</option>
-          <option>Canada</option>
-          <option>France</option>
-          <option>Germany</option>
-        </select>
+        ></select>
       </div>
 
-      <div class="mb-3">
+      <div class="">
         <label
           for="activityCode"
-          class="block mb-2 text-sm font-medium text-gray-900"
+          class="block mb-1 text-sm font-medium text-gray-900"
           >Activity Code</label
         >
         <select
           id="activityCode"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        ></select>
+      </div>
+      <div class="hidden">
+        <label
+          for="startTime"
+          class="block mb-1 text-sm font-medium text-gray-900"
+          >Start Time:
+        </label>
+        <input
+          type="datetime-local"
+          id="startTime"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        />
+      </div>
+      <div class="hidden">
+        <label
+          for="endTime"
+          class="block mb-1 text-sm font-medium text-gray-900"
+          >End Time:
+        </label>
+        <input
+          type="datetime-local"
+          id="endTime"
+          class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        />
+      </div>
+      <div class="">
+        <label
+          for="description"
+          class="block mb-1 text-sm font-medium text-gray-900"
+          >Description</label
         >
-          <option>A/kdjfs83</option>
-          <option>Canada</option>
-          <option>France</option>
-          <option>Germany</option>
-        </select>
+        <input
+          type="text"
+          id="description"
+          class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500"
+        />
       </div>
       <div class="flex justify-center space-x-4">
-        <div class="px-4 py-2 bg-cyan-700 text-white text-lg rounded-md font-semibold">00:00:00</div>
+        <div
+          id="timer"
+          class="hidden px-4 py-2 bg-cyan-700 text-white text-lg rounded-md font-semibold"
+        >
+          00:00:00
+        </div>
         <button
-          type="submit"
+          id="startTimer"
+          type="button"
           class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
           Start Timer
         </button>
-        <!-- <button
-          type="submit"
+        <button
+          id="backToTimer"
+          type="button"
+          class="hidden text-white bg-cyan-500 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Back
+        </button>
+        <button
+          id="stopTimer"
+          type="button"
+          class="hidden text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Stop Timer
+        </button>
+        <button
+          id="endSession"
+          type="button"
+          class="hidden text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Save Entry
+        </button>
+        <button
+          id="manualEntry"
+          type="button"
           class="text-white bg-cyan-700 hover:bg-cyan-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
         >
           Manual Entry
-        </button> -->
+        </button>
+        <button
+          id="saveTimesheet"
+          type="button"
+          class="hidden text-white bg-sky-700 hover:bg-sky-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+        >
+          Save Entry
+        </button>
+      </div>
+      <div class="absolute">
+        
       </div>
     </div>
 
